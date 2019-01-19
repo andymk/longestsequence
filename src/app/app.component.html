@@ -4,7 +4,6 @@
 
       <div class="col-md-6 mx-auto">
 
-
         <div class="card rounded-1">
 
           <div class="card-body">
@@ -39,6 +38,56 @@
 
       </div>
 
+  </div>
+
+</div>
+
+<div class="container-fluid main-panel">
+
+  <div class="row">
+
+      <div class="col-md-6 mx-auto">
+
+        <div class="card rounded-1">
+
+          <div class="card-body">
+
+            <div class="table-responsive">
+
+              <table class="table" *ngIf='results && results.length'>
+
+                <thead>
+
+                  <tr>
+
+                    <th>String 1</th>
+                    <th>String 2</th>
+                    <th>Result</th>
+
+                  </tr>
+
+                </thead>
+
+                <tbody>
+
+                  <tr *ngFor='let res of results'>
+
+                    <td>{{res.string1}}</td>
+                    <td>{{res.string2}}</td>
+                    <td>{{res.result}}</td>
+
+                  </tr>
+
+                </tbody>
+
+              </table>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
   </div>
 
 </div>
