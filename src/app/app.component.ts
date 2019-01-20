@@ -17,9 +17,13 @@ export class AppComponent {
 
   search() {
     let result = this.longestSequenceService.getSequence(this.string1, this.string2);
+    this.addToTable(this.string1, this.string2, result);
+  }
+
+  addToTable(string1: string, string2: string, result: string) {
     let r = {} as IResultRow;
-    r.string1 = this.string1;
-    r.string2 = this.string2;
+    r.string1 = string1;
+    r.string2 = string2;
     r.result = result;
     this.results.push(r);
   }

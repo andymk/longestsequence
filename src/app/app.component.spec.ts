@@ -1,5 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { ExpectedConditions } from 'protractor';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -7,6 +9,10 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        FormsModule
+      ]
+      
     }).compileComponents();
   }));
 
@@ -16,16 +22,20 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'longestSeqence-app'`, () => {
+  it('should add to results array', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('longestSeqence-app');
+    app.addToTable("A", "B", "C");
+    expect(app.results.length).toBe(1);
   });
 
-  it('should render title in a h1 tag', () => {
+  it('should render results array to table', () => {
     const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    app.addToTable("A", "B", "C");
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to longestSeqence-app!');
+    console.log(compiled);
+    expect(compiled.querySelector('resultsTable').textContent).toContain('Welcome to longestSeqence-app!');
   });
 });
