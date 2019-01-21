@@ -35,7 +35,6 @@ describe('AppComponent', () => {
     app.addToTable("A", "B", "C");
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    console.log(compiled);
-    expect(compiled.querySelector('resultsTable').textContent).toContain('Welcome to longestSeqence-app!');
+    expect(compiled.querySelectorAll('.resultsTable tbody tr').length).toBe(1);
   });
 });
